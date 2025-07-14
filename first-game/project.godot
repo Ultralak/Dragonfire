@@ -20,9 +20,7 @@ Music="*res://scenes/music.tscn"
 
 [editor]
 
-movie_writer/movie_file="C:/Users/david/Documents/first-game/progress_vids/progress_vid1.avi"
-movie_writer/disable_vsync=true
-movie_writer/fps=25
+movie_writer/movie_file="C:/Users/david/OneDrive/Documents/GitHub/Dragonfire/first-game/progress_vids/day1.avi"
 
 [editor_plugins]
 
