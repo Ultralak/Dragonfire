@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://cto1tdi8tl3lu"]
+
+[ext_resource type="Script" uid="uid://b3sq3ku11d7ru" path="res://pickups/health_pickups/health_pickup.gd" id="1_i0sc8"]
+[ext_resource type="Texture2D" uid="uid://bh2fk8vs352e4" path="res://pickups/health_pickups/power-up.png" id="1_kosrn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0sc8"]
+atlas = ExtResource("1_kosrn")
+region = Rect2(0, 0, 23, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8w8ss"]
+atlas = ExtResource("1_kosrn")
+region = Rect2(23, 0, 23, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1ool"]
+atlas = ExtResource("1_kosrn")
+region = Rect2(46, 0, 23, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akwax"]
+atlas = ExtResource("1_kosrn")
+region = Rect2(69, 0, 23, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pq43q"]
+atlas = ExtResource("1_kosrn")
+region = Rect2(92, 0, 23, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtffi"]
+atlas = ExtResource("1_kosrn")
+region = Rect2(115, 0, 23, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqquc"]
+atlas = ExtResource("1_kosrn")
+region = Rect2(138, 0, 23, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7f4up"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0sc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8w8ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1ool")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akwax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pq43q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtffi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqquc")
+}],
+"loop": true,
+"name": &"health_pickup",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8w8ss"]
+radius = 8.0
+
+[node name="health_pickup" type="Node2D"]
+script = ExtResource("1_i0sc8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7f4up")
+animation = &"health_pickup"
+autoplay = "health_pickup"
+frame_progress = 0.422344
+
+[node name="Health_pickup_box" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Health_pickup_box"]
+shape = SubResource("CircleShape2D_8w8ss")
+
+[connection signal="body_entered" from="Health_pickup_box" to="." method="_on_health_pickup_box_body_entered"]

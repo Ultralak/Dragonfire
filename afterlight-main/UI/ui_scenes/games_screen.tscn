@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvvyktj17k8qf"]
+
+[ext_resource type="Script" uid="uid://b1fbxhx3cdi6a" path="res://UI/ui_scripts/games_screen.gd" id="1_m3qxh"]
+[ext_resource type="Texture2D" uid="uid://ce8ineee4qqqu" path="res://UI/icons8-pause-12.png" id="2_7faw3"]
+[ext_resource type="Texture2D" uid="uid://dyye1vejeg7af" path="res://Collectibles/blue_coin/coins-chests-etc-2-0.png" id="2_16jmn"]
+[ext_resource type="PackedScene" uid="uid://da5a4vbdrxk4f" path="res://healthbar.tscn" id="3_rvqau"]
+
+[node name="Games_screen" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_m3qxh")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(4, 13)
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 1
+
+[node name="Healthbar" parent="MarginContainer/VBoxContainer/Control" instance=ExtResource("3_rvqau")]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 267.0
+offset_bottom = 9.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer/Control"]
+texture = ExtResource("2_16jmn")
+centered = false
+hframes = 20
+vframes = 4
+
+[node name="collectible_label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "0"
+
+[node name="pause_texture_button" type="TextureButton" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+button_mask = 3
+texture_normal = ExtResource("2_7faw3")
+texture_pressed = ExtResource("2_7faw3")
+
+[connection signal="pressed" from="MarginContainer/pause_texture_button" to="." method="_on_pause_texture_button_pressed"]

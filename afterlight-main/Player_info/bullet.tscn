@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckgmmvfh6nspl"]
+
+[ext_resource type="Script" uid="uid://cqmtbji60t1jf" path="res://Player_info/bullet.gd" id="2_8tv0m"]
+[ext_resource type="Texture2D" uid="uid://b2rpfyeyvxnt4" path="res://enemy_stuff/shot1..png" id="2_hdjvn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g7fi"]
+atlas = ExtResource("2_hdjvn")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdwmp"]
+atlas = ExtResource("2_hdjvn")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3s5mr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5g7fi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdwmp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hdjvn"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8tv0m"]
+
+[node name="Bullet" type="CharacterBody2D" groups=["Projectiles"]]
+collision_layer = 256
+collision_mask = 5
+script = ExtResource("2_8tv0m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3s5mr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="hitbox_area" type="Area2D" parent="." groups=["Projectiles"]]
+collision_layer = 256
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_area" groups=["Projectiles"]]
+shape = SubResource("CircleShape2D_hdjvn")
+disabled = true
+debug_color = Color(0.5776918, 0.5523675, 0.080786966, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8tv0m")
+debug_color = Color(0.7237099, 0.4174882, 0.6167501, 0.41960785)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="hitbox_area" to="." method="_on_hitbox_area_area_entered"]
+[connection signal="body_entered" from="hitbox_area" to="." method="_on_hitbox_area_body_entered"]

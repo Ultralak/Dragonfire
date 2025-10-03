@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx3pe7ayy6u0y"]
+
+[ext_resource type="Texture2D" uid="uid://fjr73p3hq3r7" path="res://Backgrounds/background_sky.png" id="1_ewm66"]
+[ext_resource type="Texture2D" uid="uid://ca4ak464pq14t" path="res://Backgrounds/clouds.png" id="2_3xcp4"]
+
+[node name="background _Parallax2D" type="ParallaxBackground"]
+offset = Vector2(0, -256)
+transform = Transform2D(1, 0, 0, 1, 0, -256)
+
+[node name="bottom_ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(720, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="bottom_ParallaxLayer"]
+scale = Vector2(1.46111, 1.5)
+texture = ExtResource("1_ewm66")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="bottom_ParallaxLayer"]
+position = Vector2(159.611, 0)
+scale = Vector2(1.51394, 1.5)
+texture = ExtResource("1_ewm66")
+centered = false
+offset = Vector2(242, 0)
+
+[node name="Sprite2D3" type="Sprite2D" parent="bottom_ParallaxLayer"]
+position = Vector2(1423, 1)
+scale = Vector2(1.49167, 1.5)
+texture = ExtResource("1_ewm66")
+centered = false
+offset = Vector2(242, 0)
+
+[node name="Sprite2D4" type="Sprite2D" parent="bottom_ParallaxLayer"]
+position = Vector2(1960, 1)
+scale = Vector2(1.49167, 1.5)
+texture = ExtResource("1_ewm66")
+centered = false
+offset = Vector2(242, 0)
+
+[node name="middle_ground" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.9, 1)
+motion_mirroring = Vector2(816, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="middle_ground"]
+position = Vector2(-17.98, 1)
+scale = Vector2(1.15556, 1.5)
+texture = ExtResource("2_3xcp4")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="middle_ground"]
+position = Vector2(398, -2)
+scale = Vector2(1.14167, 1.5)
+texture = ExtResource("2_3xcp4")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="middle_ground"]
+position = Vector2(1638.2, 0)
+scale = Vector2(1.15988, 1.5)
+texture = ExtResource("2_3xcp4")
+centered = false
+offset = Vector2(-11, 0)
+
+[node name="Sprite2D4" type="Sprite2D" parent="middle_ground"]
+position = Vector2(2043, -2)
+scale = Vector2(1.14167, 1.5)
+texture = ExtResource("2_3xcp4")
+centered = false
+offset = Vector2(-3, 0)

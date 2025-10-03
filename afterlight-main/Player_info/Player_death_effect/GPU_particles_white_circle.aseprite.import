@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dcd08e43co7jh"
+path="res://.godot/imported/GPU_particles_white_circle.aseprite-905453b9b5a83d51ea4790c199a451dc.res"
+
+[deps]
+
+source_file="res://Player_info/Player_death_effect/GPU_particles_white_circle.aseprite"
+dest_files=["res://.godot/imported/GPU_particles_white_circle.aseprite-905453b9b5a83d51ea4790c199a451dc.res"]
+
+[params]
+

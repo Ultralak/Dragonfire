@@ -1,0 +1,94 @@
+[gd_scene load_steps=11 format=3 uid="uid://jpy8sxbuhta3"]
+
+[ext_resource type="Script" uid="uid://pkhv31wv3xix" path="res://Collectibles/blue_square_gem/blue_squrare_gem.gd" id="1_hjmhm"]
+[ext_resource type="Texture2D" uid="uid://dyye1vejeg7af" path="res://Collectibles/blue_coin/coins-chests-etc-2-0.png" id="2_f0hob"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flyvx"]
+atlas = ExtResource("2_f0hob")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_verth"]
+atlas = ExtResource("2_f0hob")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6ou3"]
+atlas = ExtResource("2_f0hob")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6gd1"]
+atlas = ExtResource("2_f0hob")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhyog"]
+atlas = ExtResource("2_f0hob")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5itt8"]
+atlas = ExtResource("2_f0hob")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nwc7t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flyvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_verth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6ou3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6gd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhyog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5itt8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j5b6c"]
+radius = 5.0
+height = 14.0
+
+[node name="blue_square_gem" type="Node2D"]
+script = ExtResource("1_hjmhm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_nwc7t")
+autoplay = "default"
+frame_progress = 0.141213
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_j5b6c")
+debug_color = Color(0.933766, 0.105266, 0.581514, 0.42)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
