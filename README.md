@@ -8,3 +8,4 @@ i want to be a solodev so i just used SoM as motivation to do it, unfortunately 
 ( someone hopefully) so when will you start your next project__ why thank you for asking, i have begun it and coincidentally it falls within siege so i will be doing it along with siege, maybe i can then get a better laptop and get better at gamedev  
 (me) thanks for the convo i really appreciate it stranger, anyway for windows download and run and i expect that to be the same for other platforms i hope , anyway see you on the voting board and bye for now  
 []~(￣▽￣)~*
+<img width="1365" height="767" alt="image" src="https://github.com/user-attachments/assets/5c71c8ee-b803-45ee-9b22-9e8237f79e9a" />
